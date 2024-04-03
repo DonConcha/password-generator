@@ -27,7 +27,7 @@ function generatePassword() {
   var useNumbers = confirm("Use numbers?");
   var useSpecials = confirm("Use special characters?");
 
-  // concatenate character sets based on user choices
+  // character sets based on user choices
   if (useLowerCase) {
     characters += lowerCase;
   }
@@ -41,7 +41,7 @@ function generatePassword() {
     characters += specials;
   }
 
-  // generate password
+// final result of password 
   for (var i = 0; i < passwordLength; i++) {
     var randomIndex = Math.floor(Math.random() * characters.length);
     password += characters[randomIndex];
@@ -50,7 +50,7 @@ function generatePassword() {
   return password;
 }
 
-// function to write password to the #password input
+// function to write password to the password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");

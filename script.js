@@ -1,23 +1,24 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var passwordTextEl = document.querySelector('.passwordHolder');
-
-var lowerCaseLetters = 'abcdefghijkmnlopqrstuvwxyz';
-var lowerCaseArr = lowerCaseLetters.split('');
-var upperCaseArr = lowerCaseLetters.toUpperCase().split('');
-var numberArr = [0, 1, 2, 3, 4, 5, 6, 7, 8 ,9];
-var specialChars = '!@#$%^&*{}[]';
-var specialArr = specialChars.split('');
-
+// function to generate password
 function generatePassword(){
-var finalCharsArr = [];
-var finalPasswordArr = [];
+var password = ""
+var characters = "";
+var upperCase = "ABCDEFGHIJKMNOPQRSTUVWXuYZ";
+var lowCase = "abcdeghhijkmnopqrstuvwxyz";
+var specChar = "!@#$%^&*()?.<\>|=+:;,[-_]";
+var Num = "0123456789";
 
+// prompts that will pop up on screen
 var userChoicePasswordLength = prompt('How many characters?');
-var userChoicelower = confirm('Use lower case?');
+if (userChoicePasswordLength < 8 || userChoicePasswordLength > 128){ 
+  alert("Password must be bewtween 8 & 128");
+  generatePassword();
+};
+var userChoicelower = ('Use lower case?');
 var userChoiceUpper = confirm('use upper case?');
 var userChoiceNumbers = confirm('use numbers?');
-var userChoiceSpecials = confirm('use special characters');
+var userChoiceSpecials = confirm('use special characters?');
 
 // Write password to the #password input
 function writePassword() {
@@ -27,6 +28,6 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
